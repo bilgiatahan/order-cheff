@@ -231,7 +231,7 @@ export async function updateStaff(
 }
 
 export async function deleteStaff(_id: string): Promise<void> {
-  console.warn("Staff servis endpointi henüz backend'de uygulanmamıştır.");
+  console.warn("Staff servis endpointi henüz backend'de uygulanmamıştır.", _id);
   return Promise.resolve();
 }
 
