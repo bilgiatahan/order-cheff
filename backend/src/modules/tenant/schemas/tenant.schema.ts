@@ -35,7 +35,7 @@ export class Tenant {
   @Prop()
   websiteUrl?: string;
 
-  @Prop()
+  @Prop({ type: Object })
   socialMedia?: {
     facebook?: string;
     instagram?: string;
