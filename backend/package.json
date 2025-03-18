@@ -18,7 +18,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker:build": "docker build -t ordercheff-backend .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env.production ordercheff-backend",
+    "docker:push": "docker tag ordercheff-backend registry.example.com/ordercheff-backend && docker push registry.example.com/ordercheff-backend",
+    "pm2:start": "pm2 start ecosystem.config.js --env production",
+    "pm2:restart": "pm2 restart ordercheff-backend",
+    "pm2:stop": "pm2 stop ordercheff-backend",
+    "pm2:delete": "pm2 delete ordercheff-backend",
+    "pm2:logs": "pm2 logs ordercheff-backend",
+    "pm2:status": "pm2 status ordercheff-backend"
   },
   "dependencies": {
     "@nestjs/cache-manager": "^3.0.0",

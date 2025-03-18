@@ -7,6 +7,7 @@ import { TenantModule } from './modules/tenant/tenant.module';
 import { ProductModule } from './modules/product/product.module';
 import { CategoryModule } from './modules/category.module';
 import { TenantMiddleware } from './middleware/tenant.middleware';
+import { SubdomainMiddleware } from './middleware/subdomain.middleware';
 import { CloudinaryModule } from './modules/cloudinary/cloudinary.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { CacheModule } from '@nestjs/cache-manager';
@@ -41,6 +42,10 @@ import { AuthModule } from './modules/auth/auth.module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {
+    // Önce subdomain middleware'ini uygula
+    consumer.apply(SubdomainMiddleware).forRoutes('*');
+
+    // Sonra tenant middleware'ini belirli routelara uygula
     consumer
       .apply(TenantMiddleware)
       .exclude('tenants/(.*)', 'auth/(.*)', 'menu/mock-data') // Tenant, auth ve mock-data endpointlerini hariç tut

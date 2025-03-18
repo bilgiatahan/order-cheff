@@ -1,0 +1,41 @@
+# Node.js
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Derleme çıktıları
+dist
+build
+
+# Testler ve dökümanlar
+test
+docs
+coverage
+.nyc_output
+
+# Git ve versiyon kontrol
+.git
+.gitignore
+
+# Çevre değişkenleri - Docker Compose'dan gelecek
+.env
+.env.*
+!.env.example
+
+# Diğer
+.DS_Store
+*.md
+!README.md
+Dockerfile
+.dockerignore 

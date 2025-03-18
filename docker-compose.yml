@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  backend:
+    build: ./backend
+    container_name: ordercheff-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - PORT=3000
+      - NODE_ENV=production
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+    restart: always
+    volumes:
+      - ./backend/logs:/app/logs
+
+  # İlerleyen aşamalarda frontend servisi de eklenecek
+  # frontend:
+  #   build: ./frontend
+  #   container_name: ordercheff-frontend
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     - NEXT_PUBLIC_API_URL=http://backend:3000
+  #   depends_on:
+  #     - backend

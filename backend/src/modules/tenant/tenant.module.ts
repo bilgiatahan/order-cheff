@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Tenant, TenantSchema } from '../../schemas/tenant.schema';
+import { Tenant, TenantSchema } from './schemas/tenant.schema';
 import { Menu, MenuSchema } from '../../schemas/menu.schema';
 import { Category, CategorySchema } from '../../schemas/category.schema';
 import { Product, ProductSchema } from '../../schemas/product.schema';
@@ -18,6 +18,6 @@ import { TenantService } from './tenant.service';
   ],
   controllers: [TenantController],
   providers: [TenantService],
-  exports: [TenantService],
+  exports: [TenantService, MongooseModule],
 })
 export class TenantModule {}
