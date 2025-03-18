@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "assets": ["**/*.proto"],
+    "watchAssets": true,
+    "plugins": [
+      {
+        "name": "@nestjs/swagger",
+        "options": {
+          "classValidatorShim": false,
+          "introspectComments": true
+        }
+      }
+    ]
+  },
+  "paths": {
+    "@/*": ["src/*"],
+    "@modules/*": ["src/modules/*"],
+    "@schemas/*": ["src/schemas/*"],
+    "@middleware/*": ["src/middleware/*"],
+    "@interfaces/*": ["src/interfaces/*"],
+    "@decorators/*": ["src/decorators/*"],
+    "@services/*": ["src/services/*"],
+    "@controllers/*": ["src/controllers/*"],
+    "@common/*": ["src/common/*"],
+    "@config/*": ["src/config/*"],
+    "@utils/*": ["src/utils/*"]
+  }
+}
